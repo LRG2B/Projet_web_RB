@@ -19,43 +19,47 @@ Le but de ce projet est de créer une petite interface pour pouvoir comparer vos
 préférés sur différentes données et voir l’évolution de celles ci (Un petit twitch tracker en gros).
 Vous trouverez ci dessous les détails des fonctionnalités à implémenter :
 
-- Front end : L’utilisateur doit pouvoir faire les choses suivantes :
-- Pouvoir comparer tous les streamers sur un mois (si il y a de la donnée)
-- Avoir la possibilité de cacher certains streamers
-- Pouvoir voir le détail d’un streamer de manière individuelle
-- Pour chaque streamer on doit pouvoir voir :
-- Sa moyenne des différents metrics mois par mois
-- Et avoir des courbes d’évolution de ces différentes statistiques
-- Back end : Pour pouvoir afficher ces données, vous devez avoir un back end PHP capable de
-    faire les choses suivantes :
+
+    - Front end : 
+
+    L’utilisateur doit pouvoir faire les choses suivantes :
+    - Pouvoir comparer tous les streamers sur un mois (si il y a de la donnée)
+    - Avoir la possibilité de cacher certains streamers
+    - Pouvoir voir le détail d’un streamer de manière individuelle. Pour chaque streamer on doit pouvoir voir :
+        - Sa moyenne des différents metrics mois par mois
+        - Et avoir des courbes d’évolution de ces différentes statistiques
+
+
+    - Back end : 
+
+    Pour pouvoir afficher ces données, vous devez avoir un back end PHP capable de faire les choses suivantes :
     - Une api permettant de renvoyer les données en JSON (pour le javascript)
-    - Mettre en place tous les endpoints vous permettant de faire tout ce qui est possible dans le
-    front end
-    - Se connecter à la base et avoir les fonctions permettant de récupérer les données et les
-    transformer
+    - Mettre en place tous les endpoints vous permettant de faire tout ce qui est possible dans le front end
+    - Se connecter à la base et avoir les fonctions permettant de récupérer les données et les transformer
+
+
     Concernant le PHP, vous pouvez utiliser des frameworks ou autre, ce choix est libre de votre
-    côté.
-    Vous serez évalué selon les critères suivants :
+    côté. Vous serez évalué selon les critères suivants :
+
     - Fonctionnalités du site par rapport au sujet
-    - Bonnes pratiques dans le code PHP ET JS : MVC, DRY, etc ( vous pouvez venir me demander
-    pour des ressources)
+    - Bonnes pratiques dans le code PHP ET JS : MVC, DRY, etc ( vous pouvez venir me demander pour des ressources)
     - Bonnes pratiques pour l’api renvoyant du JSON : REST ( vous pouvez venir de demander)
-    Framework web - Projet Noté
-    Bonus
+    - Framework web (si utiliser)
+    - Bonus
 
 
-Seront disponibles les bonus suivants :
-- Mise en page CSS pour le site (Quelque chose de sympa, les 3 propriétés css de Jo le Clodo)
-- Mettre en place une API Key pour limiter l’accès à votre api et avoir un minimum de sécurité
+    Seront disponibles les bonus suivants :
+    - Mise en page CSS pour le site (Quelque chose de sympa, les 3 propriétés css de Jo le Clodo)
+    - Mettre en place une API Key pour limiter l’accès à votre api et avoir un minimum de sécurité
 
-Un seul bonus complété est suffisant pour avoir tous les points de bonus
-Malus
+    Un seul bonus complété est suffisant pour avoir tous les points de bonus
+    Malus
 
 
-Attention, les malus suivants seront appliqués, et contrairement aux bonus ils s’accumulent :
-- -1 si le code n’est pas hébergé sur GitHub
-- -1 si le code n’est pas correctement indenté
-- -2 par jours de retard
+    Attention, les malus suivants seront appliqués, et contrairement aux bonus ils s’accumulent :
+    - -1 si le code n’est pas hébergé sur GitHub
+    - -1 si le code n’est pas correctement indenté
+    - -2 par jours de retard
 
 
 Rendus
