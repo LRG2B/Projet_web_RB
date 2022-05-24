@@ -1,13 +1,12 @@
-<!-- ~/php/tp1/view/cities.php -->
 <!DOCTYPE HTML>
 <html>
     <head>
+        <link rel="stylesheet" href="detail_style.css">
         <meta http-equiv="content-type" content="text/html;
             charset=utf-8" />
     </head>
-    <title>404 - Oops</title>
+    <title>Twitch Analitics</title>
     <body>
-    <h1>No cities where found</h1>
-    <p>No cities where found with that id</p>
+    <p>Bientôt ici ce seras la page de détail</p>
     </body>
 </html>
