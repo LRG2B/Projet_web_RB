@@ -19,9 +19,10 @@
     
     <body>
         <section>
-        <?php foreach($streamers as $streamer): ?>
+        <?php foreach($streamers as $streamer): ?>  
 
             <article>
+                <img src="images_streamers\<?= $streamer["id"]?>.jpg", alt=<?= $streamer["name"] ?>>
                 <p><?php echo $streamer["id"]?> - <a href="page_détail/detail.php?id=<?= $streamer["id"] ?>"><?php echo $streamer["name"]?></a></p>
             </article>
 

@@ -29,22 +29,9 @@ $streamer_stats = $requete_streamer_stats->fetch();
 if (!$streamer) //Si l'id ne renvoit aucun streamer
 {
     http_response_code(404);
-    echo "Streamer inexistant";
+    echo "Streamer introuvable";
     exit;
 }
-
-//id
-//date
-//minutes_streamed
-//rank
-//avg_viewers
-//max_viewers
-//hours_watched
-//followers
-//views
-//followers_total
-//views_total
-//streamer
 
 ?>
 
