@@ -1,11 +1,10 @@
 <?php
-    require_once "connect.php"; //On se connecte à la base
 
-    $sql_streamers = "SELECT * FROM streamers"; //On définit une requête
+require_once "connect.php"; //On se connecte à la base
+$sql_streamers = "SELECT * FROM streamers"; //On définit une requête
+$requete = $db->query($sql_streamers); //On exécute la requête
+$streamers = $requete->fetchAll(); //On récupère les données
 
-    $requete = $db->query($sql_streamers); //On exécute la requête
-
-    $streamers = $requete->fetchAll(); //On récupère les données
 ?>
 
 <!DOCTYPE HTML>
@@ -18,16 +17,17 @@
     </head>
     
     <body>
-        <section>
+        <div>
         <?php foreach($streamers as $streamer): ?>  
 
-            <article>
-                <img src="images_streamers\<?= $streamer["id"]?>.jpg", alt=<?= $streamer["name"] ?>>
+            <div>
+                <img src="images_streamers\<?= $streamer["id"]?>.jpg", alt=<?= $streamer["name"] ?>, width="200", height="200">
                 <p><?php echo $streamer["id"]?> - <a href="page_détail/detail.php?id=<?= $streamer["id"] ?>"><?php echo $streamer["name"]?></a></p>
-            </article>
+            </div>
 
         <?php endforeach; ?>
-        </section>
+        </div>
+        <p><a href="page_compare/compare.php">Comparaison</a></p>
     </body>
 
 </html>

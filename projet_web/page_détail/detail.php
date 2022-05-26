@@ -57,6 +57,6 @@ if (!$streamer) //Si l'id ne renvoit aucun streamer
         <p>Total followers : <?php echo $streamer_stats["followers_total"]?></h1>
         <p>Total views : <?php echo $streamer_stats["views_total"]?></h1>
 
-        <p><a href="../index.php">Retour</a></p>
+        <p><a href="../index.php"><- Retour</a></p>
     </body>
 </html>
