@@ -18,8 +18,6 @@
     </head>
     
     <body>
-        <p>Bientôt ici ce seras l'accueil</p>
-
         <section>
         <?php foreach($streamers as $streamer): ?>
 

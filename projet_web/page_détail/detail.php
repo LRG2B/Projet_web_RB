@@ -54,7 +54,7 @@ if (!$streamer) //Si l'id ne renvoit aucun streamer
         <link rel="stylesheet" href="détail_style.css">
         <meta http-equiv="content-type" content="text/html;
             charset=utf-8" />
-        <title>Twitch Analitics</title>
+        <title><?php echo $streamer["name"]?> - Twitch Analitics</title>
     </head>
     <body>
         <h1><?php echo $streamer["name"]?></h1>
@@ -69,5 +69,7 @@ if (!$streamer) //Si l'id ne renvoit aucun streamer
         <p>Views : <?php echo $streamer_stats["views"]?></h1>
         <p>Total followers : <?php echo $streamer_stats["followers_total"]?></h1>
         <p>Total views : <?php echo $streamer_stats["views_total"]?></h1>
+
+        <p><a href="../index.php">Retour</a></p>
     </body>
 </html>
