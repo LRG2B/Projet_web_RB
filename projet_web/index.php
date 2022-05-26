@@ -14,20 +14,50 @@
         <link rel="stylesheet" href="./page_index/index_style.css">
         <meta http-equiv="content-type" content="text/html;
         charset=utf-8" />
-        <title>Twitch Analitics</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+        </style>
+        <title>Twitch track</title>
     </head>
     
     <body>
-        <section>
+        <header>
+        <img src="./images_streamers/logo.png" alt="logo twitch track">
+        <div id="elem_header">
+            <h3><a class="header_text" href="index.php">Accueil</a></h3>
+            <h3><a class="header_text" href="./page_compare/compare.php">Comparaison</a></h3>
+        </div>
+        </header>
+
+        <section id="illustration">
+            <img src="./images_streamers/Twitch_Track_illustration.png" alt="illustration site">
+        </section>
+
+        <section id="text">
+            <h1 id="text_desc">Voici Twitch Track un trakeur qui vous propose les fonctionnalité suivante : </h1>
+            <li class="text_desc_puce">Voir les statistique des meilleurs streamer Français</li>
+            <li class="text_desc_puce">Comparer les meilleurs streamer Français</li>
+            <div id="citation"><h1><i>“ Le meilleur Trackeur Twitch ”</i> &emsp;&emsp; Par LRG²B (en gros nous-même)</h1></div>
+        </section>
+
+        <p id="text_list">
+            Liste des Streamers :
+        </p>
+        <section id="streamers">
         <?php foreach($streamers as $streamer): ?>  
 
-            <article>
+            <article id="detail_streamer">
                 <img src="images_streamers\<?= $streamer["id"]?>.jpg", alt=<?= $streamer["name"] ?>>
                 <p><?php echo $streamer["id"]?> - <a href="page_détail/detail.php?id=<?= $streamer["id"] ?>"><?php echo $streamer["name"]?></a></p>
             </article>
 
         <?php endforeach; ?>
         </section>
+
+        <footer>
+            <img src="./images_streamers/Logo-LRG2B-Officiel-sliced.png" alt="Logo LRG²B">
+            <p>Lien GitHub : <a href="https://github.com/LRG2B">ici</a></p>
+        </footer>
     </body>
 
 </html>

@@ -5,7 +5,7 @@
         <meta http-equiv="content-type" content="text/html;
             charset=utf-8" />
     </head>
-    <title>Twitch Analitics</title>
+    <title>Twitch track</title>
     <body>
     <p>Bientôt ici ce seras la page de comparaison</p>
     </body>

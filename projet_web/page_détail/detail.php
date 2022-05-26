@@ -41,7 +41,7 @@ if (!$streamer) //Si l'id ne renvoit aucun streamer
         <link rel="stylesheet" href="détail_style.css">
         <meta http-equiv="content-type" content="text/html;
             charset=utf-8" />
-        <title><?php echo $streamer["name"]?> - Twitch Analitics</title>
+        <title><?php echo $streamer["name"]?> - Twitch track</title>
     </head>
     <body>
         <h1><?php echo $streamer["name"]?></h1>
