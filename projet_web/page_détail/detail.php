@@ -10,7 +10,6 @@ $id = $_GET["id"]; //On récupère l'id
 $sql_streamers = "SELECT * FROM streamers WHERE id = :id";
 $sql_streamers_stats = "SELECT * FROM `streamers-stats` WHERE streamer = :id";
 
-
 require_once "../connect.php"; //On se connecte à la base
 
 $requete_streamer = $db->prepare($sql_streamers); //On prépare la requête
