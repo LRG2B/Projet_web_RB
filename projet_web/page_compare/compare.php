@@ -16,34 +16,32 @@ $streamers = $requete->fetchAll();
     </head>
     
     <body>
-        <div>
-            <select name="dropdown" class="dropdown" onchange="update()">
-                <option disabled value selected>Sélectionnez un streamer</option>
-                <?php foreach($streamers as $streamer): ?>
-                    <option value="<?= $streamer["id"] ?>"><?= $streamer["name"] ?></option>
-                    <?php endforeach; ?>
+        <form action="" method="POST">
+            <p>Nombre de streamer à comparer</p>
+            <select name="nb_streamer">
+                <option disabled value selected>0</option>
+                <?php
+                    for ($i = 1; $i < 6; $i++)  
+                    {?>
+                        <option value="<?= $i?>"><?= $i ?></option>
+                    <?php } ?>
             </select>
-            <p id="name"></p>
-                
-            <script type="text/javascript">
-                function update()
-                {
-                //var select = document.getElementById("dropdown");
-                //var option = select.options[select.selectedIndex];
-                //document.getElementById("name").innerHTML = option.value;
-                var v = document.querySelector('dropdown');
-                console.log(v);
-                document.getElementById("name").innerHTML = v;
-                }
-            </script>
-            <?php
-                $option_value = 1; 
-                //echo "<script type='text/javascript' id='oui'>document.write(value);</script>";
-                $sql_streamers_stats = "SELECT * FROM `streamers-stats` WHERE streamer = $option_value";
-                $requete_streamer_stats = $db->query($sql_streamers_stats);
-                $streamer_stats = $requete_streamer_stats->fetch();
-            ?>
+            <input type="submit" name="envoyer_nb_streamer" value="Valider">
+        </form>
 
+        <?php for($i = 0; $i < $_POST['nb_streamer']; $i++) { ?>
+            <form action="" method="POST">
+                <select name="streamer">
+                    <option disabled value selected>Sélectionnez un streamer</option>
+                    <?php foreach($streamers as $streamer): ?>
+                        <option value="<?= $streamer["id"] ?>"><?= $streamer["name"] ?></option>
+                    <?php endforeach; ?>
+                </select>
+                <input type="submit" name="envoyer_streamer" value="Valider">
+            </form>
+            <?php } ?>
+
+        <div>
             <p>Rank : <?php echo $streamer_stats["rank"]?></p>
             <p>Date : <?php echo $streamer_stats["date"]?></p>
             <p>Minutes streamed : <?php echo $streamer_stats["minutes_streamed"]?></p>
@@ -55,6 +53,12 @@ $streamers = $requete->fetchAll();
             <p>Total followers : <?php echo $streamer_stats["followers_total"]?></p>
             <p>Total views : <?php echo $streamer_stats["views_total"]?></p>
         </div>
+        <?php
+            $option_value = $_POST['streamer'];
+            $sql_streamers_stats = "SELECT * FROM `streamers-stats` WHERE streamer = $option_value";
+            $requete_streamer_stats = $db->query($sql_streamers_stats);
+            $streamer_stats = $requete_streamer_stats->fetch();
+        ?>
         <p><a href="../index.php"><- Retour</a></p>
     </body>
 </html>
