@@ -1,7 +1,7 @@
 
-
 body {
     background-color: rgb(48, 48, 48);
+    font-family: 'Fira Mono', monospace;
 }
 
 header {
@@ -22,7 +22,10 @@ header {
     display: flex;
     justify-content: center;
 }
-
+/*
+font-family: 'Audiowide', cursive;
+font-family: 'Fira Mono', monospace;
+*/
 header h3 {
     margin-left: 30px;
     margin-right: 30px;
@@ -37,7 +40,7 @@ header h3 {
 
 header img {
    max-height: 80px ;
-   max-width: 160px;
+   max-width: 140px;
    margin-right: 37%;
 }
 
@@ -65,6 +68,7 @@ header img {
     color :#3821b8;
     padding-top: 10px;
     padding-bottom: 10px;
+    font-family: 'Catamaran', sans-serif;
 }
 
 .text_desc_puce {
@@ -111,6 +115,11 @@ footer a {
     background-color: black;
     text-decoration:none;
     color: #9146FF;
+    font-family: 'Audiowide', cursive;
+}
+#detail_streamer:hover
+{
+    background-color: rgb(71, 71, 71);
 }
 
 #detail_streamer a {
@@ -125,4 +134,5 @@ footer a {
 #text_list {
     color: #9146FF;
     font-size: 30px;
+    padding-left: 5%;
 }
