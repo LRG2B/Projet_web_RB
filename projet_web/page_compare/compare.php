@@ -7,6 +7,7 @@ $streamers = $requete->fetchAll();
 
 ?>
 
+
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -16,49 +17,45 @@ $streamers = $requete->fetchAll();
     </head>
     
     <body>
-        <form action="" method="POST">
-            <p>Nombre de streamer à comparer</p>
-            <select name="nb_streamer">
-                <option disabled value selected>0</option>
-                <?php
-                    for ($i = 1; $i < 6; $i++)  
-                    {?>
-                        <option value="<?= $i?>"><?= $i ?></option>
-                    <?php } ?>
-            </select>
-            <input type="submit" name="envoyer_nb_streamer" value="Valider">
-        </form>
+        <script type="text/javascript">
 
-        <?php for($i = 0; $i < $_POST['nb_streamer']; $i++) { ?>
-            <form action="" method="POST">
-                <select name="streamer">
-                    <option disabled value selected>Sélectionnez un streamer</option>
-                    <?php foreach($streamers as $streamer): ?>
-                        <option value="<?= $streamer["id"] ?>"><?= $streamer["name"] ?></option>
-                    <?php endforeach; ?>
-                </select>
-                <input type="submit" name="envoyer_streamer" value="Valider">
-            </form>
-            <?php } ?>
+            function show_hide_div(input_box, div_stats)
+            {
+                if (input_box.checked)
+                {
+                    document.getElementById(div_stats).style.display = "block";
+                } else 
+                {
+                    document.getElementById(div_stats).style.display = "none";
+                }
+            }
+        </script>
 
+
+        <?php foreach($streamers as $streamer): ?>
         <div>
-            <p>Rank : <?php echo $streamer_stats["rank"]?></p>
-            <p>Date : <?php echo $streamer_stats["date"]?></p>
-            <p>Minutes streamed : <?php echo $streamer_stats["minutes_streamed"]?></p>
-            <p>Average viewers : <?php echo $streamer_stats["avg_viewers"]?></p>
-            <p>Maximum viewers : <?php echo $streamer_stats["max_viewers"]?></p>
-            <p>Hours watched : <?php echo $streamer_stats["hours_watched"]?></p>
-            <p>Followers : <?php echo $streamer_stats["followers"]?></p>
-            <p>Views : <?php echo $streamer_stats["views"]?></p>
-            <p>Total followers : <?php echo $streamer_stats["followers_total"]?></p>
-            <p>Total views : <?php echo $streamer_stats["views_total"]?></p>
-        </div>
-        <?php
-            $option_value = $_POST['streamer'];
-            $sql_streamers_stats = "SELECT * FROM `streamers-stats` WHERE streamer = $option_value";
-            $requete_streamer_stats = $db->query($sql_streamers_stats);
+            <p><?= $streamer["name"] ?><input type="checkbox" onclick="show_hide_div(this, '<?= $streamer['name'] ?>')" Checked></p>
+
+            <?php 
+            $sql_streamer_stats = "SELECT * FROM `streamers-stats` WHERE streamer = " . $streamer['id'] . ";";
+            $requete_streamer_stats = $db->query($sql_streamer_stats);
             $streamer_stats = $requete_streamer_stats->fetch();
-        ?>
+            ?>
+
+            <div id="<?= $streamer["name"] ?>">
+                <p>Rank : <?php echo $streamer_stats["rank"]?></p>
+                <p>Date : <?php echo $streamer_stats["date"]?></p>
+                <p>Minutes streamed : <?php echo $streamer_stats["minutes_streamed"]?></p>
+                <p>Average viewers : <?php echo $streamer_stats["avg_viewers"]?></p>
+                <p>Maximum viewers : <?php echo $streamer_stats["max_viewers"]?></p>
+                <p>Hours watched : <?php echo $streamer_stats["hours_watched"]?></p>
+                <p>Followers : <?php echo $streamer_stats["followers"]?></p>
+                <p>Views : <?php echo $streamer_stats["views"]?></p>
+                <p>Total followers : <?php echo $streamer_stats["followers_total"]?></p>
+                <p>Total views : <?php echo $streamer_stats["views_total"]?></p>
+            </div>
+        </div>
+        <?php endforeach; ?>
         <p><a href="../index.php"><- Retour</a></p>
     </body>
 </html>
