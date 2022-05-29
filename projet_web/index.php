@@ -1,11 +1,10 @@
 <?php
-    require_once "connect.php"; //On se connecte à la base
 
-    $sql_streamers = "SELECT * FROM streamers"; //On définit une requête
+require_once "connect.php"; //On se connecte à la base
+$sql_streamers = "SELECT * FROM streamers"; //On définit une requête
+$requete = $db->query($sql_streamers); //On exécute la requête
+$streamers = $requete->fetchAll(); //On récupère les données
 
-    $requete = $db->query($sql_streamers); //On exécute la requête
-
-    $streamers = $requete->fetchAll(); //On récupère les données
 ?>
 
 
@@ -54,8 +53,7 @@
 
         <?php endforeach; ?>
         </section>
-
-
+      
         <footer>
             <img src="./images_streamers/Logo-LRG2B-Officiel-sliced.png" alt="Logo LRG²B">
             <p>Lien GitHub : <a href="https://github.com/LRG2B">ici</a></p>

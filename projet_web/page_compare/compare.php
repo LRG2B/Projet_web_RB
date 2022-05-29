@@ -1,30 +1,8 @@
 <?php
 
-$sql_streamers = "SELECT * FROM streamers ";
-$sql_streamers_stats = "SELECT streamer , MAX(date), minutes_streamed, rank, avg_viewers, max_viewers, hours_watched, followers, views, followers_total, views_total 
-                        FROM `streamers-stats` 
-                        GROUP BY streamer;";
-
-
-require_once "../connect.php"; //On se connecte à la base
-
-$requete_streamer = $db->prepare($sql_streamers); //On prépare la requête
-$requete_streamer_stats = $db->prepare($sql_streamers_stats);
-
-$requete_streamer->execute(); //On execute la requête
-$requete_streamer_stats->execute();
-
-$streamers = $requete_streamer->fetch(); //On récupère les données
-$streamer_stats = $requete_streamer_stats->fetch();
-
-function GetNameById($id,$streamer) {
-    foreach ($streamer as $data) {
-        if($data["id"] == $id) {
-            return $data['name'] ;
-        }
-}
-}
-
+require_once "../connect.php";
+$sql_streamers = "SELECT * FROM streamers";
+$requete = $db->query($sql_streamers);
 
 ?>
 
@@ -32,43 +10,53 @@ function GetNameById($id,$streamer) {
 
 <!DOCTYPE HTML>
 <html>
-<head>
-        <link rel="stylesheet" href="./compare_style.css">
-        <meta http-equiv="content-type" content="text/html;
-            charset=utf-8" />
-        <title>Twitch track</title>
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
-            @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Fira+Mono:wght@500&display=swap');
-        </style>
-
-    <body>
+    <head>
+        <link rel="stylesheet" href="compare_style.css">
+        <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+        <title>COMPARE - Twitch Analitics</title>
+    </head>
     
-        <header>
-            <img src="../images_streamers/logo.png" alt="logo twitch track">
-            <div id="elem_header">
-                <h3><a class="header_text" href="../index.php">Accueil</a></h3>
-                <h3><a class="header_text" href="../page_compare/compare.php">Comparaison</a></h3>
+    <body>
+        <script type="text/javascript">
+
+            function show_hide_div(input_box, div_stats)
+            {
+                if (input_box.checked)
+                {
+                    document.getElementById(div_stats).style.display = "block";
+                } else 
+                {
+                    document.getElementById(div_stats).style.display = "none";
+                }
+            }
+        </script>
+
+
+        <?php foreach($streamers as $streamer): ?>
+        <div>
+            <p><?= $streamer["name"] ?><input type="checkbox" onclick="show_hide_div(this, '<?= $streamer['name'] ?>')" Checked></p>
+
+            <?php 
+            $sql_streamer_stats = "SELECT * FROM `streamers-stats` WHERE streamer = " . $streamer['id'] . ";";
+            $requete_streamer_stats = $db->query($sql_streamer_stats);
+            $streamer_stats = $requete_streamer_stats->fetch();
+            ?>
+
+            <div id="<?= $streamer["name"] ?>">
+                <p>Rank : <?php echo $streamer_stats["rank"]?></p>
+                <p>Date : <?php echo $streamer_stats["date"]?></p>
+                <p>Minutes streamed : <?php echo $streamer_stats["minutes_streamed"]?></p>
+                <p>Average viewers : <?php echo $streamer_stats["avg_viewers"]?></p>
+                <p>Maximum viewers : <?php echo $streamer_stats["max_viewers"]?></p>
+                <p>Hours watched : <?php echo $streamer_stats["hours_watched"]?></p>
+                <p>Followers : <?php echo $streamer_stats["followers"]?></p>
+                <p>Views : <?php echo $streamer_stats["views"]?></p>
+                <p>Total followers : <?php echo $streamer_stats["followers_total"]?></p>
+                <p>Total views : <?php echo $streamer_stats["views_total"]?></p>
             </div>
-        </header>
-
-
-        <article id="illustration">
-            <img src="../images_streamers/illustration.png" alt="illustration site">
-        </article>
-
-
-        <article id="streamers">
-        <?php foreach($streamer_stats as $streamer): ?>  
-
-            <div id="detail_streamer">
-                <a href="page_détail/detail.php?id=<?= $streamer["streamer"] ?>"> <?php echo GetNameById($streamer["streamer"], $streamers)?> </a>
-            </div>
-
+        </div>
         <?php endforeach; ?>
-        </article>
-
-        
+        <p><a href="../index.php"><- Retour</a></p>
     </body>
 
 </html>

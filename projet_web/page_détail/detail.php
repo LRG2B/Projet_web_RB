@@ -10,7 +10,6 @@ $id = $_GET["id"]; //On récupère l'id
 $sql_streamers = "SELECT * FROM streamers WHERE id = :id";
 $sql_streamers_stats = "SELECT * FROM `streamers-stats` WHERE streamer = :id";
 
-
 require_once "../connect.php"; //On se connecte à la base
 
 $requete_streamer = $db->prepare($sql_streamers); //On prépare la requête
@@ -70,7 +69,7 @@ if (!$streamer) //Si l'id ne renvoit aucun streamer
             <img src="..\images_streamers\<?= $streamer["id"]?>.jpg", alt=<?= $streamer["name"] ?>>
             <h1><?php echo $streamer["name"]?></h1>
         </div>
-
+          
         <div id="info_princ">
             <p>Rank : <?php echo $streamer_stats["rank"]?></h1>
             <p>Followers : <?php echo $streamer_stats["followers"]?></h1>
