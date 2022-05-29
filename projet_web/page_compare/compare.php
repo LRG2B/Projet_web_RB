@@ -3,9 +3,9 @@
 require_once "../connect.php";
 $sql_streamers = "SELECT * FROM streamers";
 $requete = $db->query($sql_streamers);
-$streamers = $requete->fetchAll();
 
 ?>
+
 
 
 <!DOCTYPE HTML>
@@ -58,4 +58,5 @@ $streamers = $requete->fetchAll();
         <?php endforeach; ?>
         <p><a href="../index.php"><- Retour</a></p>
     </body>
+
 </html>
