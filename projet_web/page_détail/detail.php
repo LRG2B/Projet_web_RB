@@ -34,10 +34,13 @@ if (!$streamer) //Si l'id ne renvoit aucun streamer
 }
 
 ?>
+
+
+
 <!DOCTYPE HTML>
 <html>
     <head>
-        <link rel="stylesheet" href="détail_style.css">
+        <link rel="stylesheet" href="./détail_style.css">
         <meta http-equiv="content-type" content="text/html;
             charset=utf-8" />
         <title><?php echo $streamer["name"]?> - Twitch track</title>
@@ -52,7 +55,7 @@ if (!$streamer) //Si l'id ne renvoit aucun streamer
             <img src="../images_streamers/logo.png" alt="logo twitch track">
             <div id="elem_header">
                 <h3><a class="header_text" href="../index.php">Accueil</a></h3>
-                <h3><a class="header_text" href="./page_compare/compare.php">Comparaison</a></h3>
+                <h3><a class="header_text" href="../page_compare/compare.php">Comparaison</a></h3>
             </div>
         </header>
 

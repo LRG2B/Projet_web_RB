@@ -88,6 +88,7 @@ footer a {
     justify-content: center;
     padding : 30px;
     margin-top: -10px;
+    margin-left: -20px;
 }
 
 #image_streamer h1 {
@@ -116,4 +117,9 @@ footer a {
     padding: 10px;
     font-size: 20px;
     text-decoration: none;
+}
+
+#illustration {
+    max-width: 90%;
+    margin-left: -20px;
 }
