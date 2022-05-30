@@ -47,6 +47,7 @@ if (!$streamer) //Si l'id ne renvoit aucun streamer
             @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
             @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Fira+Mono:wght@500&display=swap');
         </style>
+    </head>
 
     <body>
     
@@ -98,7 +99,7 @@ if (!$streamer) //Si l'id ne renvoit aucun streamer
 
 
         <article id="retour">
-        <p><a href="../index.php">Retour</a></p>
+            <p><a href="../index.php">Retour</a></p>
         </article>
 
 

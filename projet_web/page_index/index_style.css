@@ -110,11 +110,12 @@ footer a {
 
 #detail_streamer {
     text-align: center;
-    margin: 20px;
+    margin: 40px;
     background-color: black;
     text-decoration:none;
     color: #9146FF;
     font-family: 'Audiowide', cursive;
+    border-radius: 6px;
 }
 #detail_streamer:hover
 {
@@ -128,6 +129,7 @@ footer a {
 
 #detail_streamer img {
     margin: 10px;
+    border-radius: 2px;
 }
 
 #text_list {

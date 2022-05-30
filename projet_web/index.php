@@ -18,7 +18,8 @@ $streamers = $requete->fetchAll(); //On récupère les données
             @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Fira+Mono:wght@500&display=swap');
         </style>
         <title>Twitch track</title>
-
+    </head>
+    <body>
         <header>
             <img src="./images_streamers/logo.png" alt="logo twitch track">
             <div id="elem_header">

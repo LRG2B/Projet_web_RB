@@ -75,7 +75,9 @@ footer a {
     font-family: 'Fira Mono', monospace;
     padding: 10px;
     margin : 10px;
+    border-radius: 10px;
 }
+
 
 #text {
     color: #9146FF;
@@ -94,6 +96,10 @@ footer a {
 #image_streamer h1 {
     text-align: center;
     margin-bottom: -10px;
+}
+
+#image_streamer img {
+    border-radius: 6px;
 }
 
 #info_princ {
@@ -117,6 +123,7 @@ footer a {
     padding: 10px;
     font-size: 20px;
     text-decoration: none;
+    border-radius: 6px;
 }
 
 #illustration {
