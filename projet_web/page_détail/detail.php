@@ -35,7 +35,6 @@ if (!$streamer) //Si l'id ne renvoit aucun streamer
 ?>
 
 
-
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -47,6 +46,7 @@ if (!$streamer) //Si l'id ne renvoit aucun streamer
             @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
             @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Fira+Mono:wght@500&display=swap');
         </style>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
 
     <body>
@@ -93,7 +93,7 @@ if (!$streamer) //Si l'id ne renvoit aucun streamer
 
             </div>
             <div id="graph">
-                <img src="../images_streamers/stonks-meme.jpg" alt="Graphique évolution streamer">
+                 <canvas id="myChart" height="500" width="700"></canvas>
             </div>
         </article>
 
@@ -102,6 +102,7 @@ if (!$streamer) //Si l'id ne renvoit aucun streamer
             <p><a href="../index.php">Retour</a></p>
         </article>
 
+       
 
         <footer>
             <img src="../images_streamers/Logo-LRG2B-Officiel-sliced.png" alt="Logo LRG²B">
@@ -109,3 +110,50 @@ if (!$streamer) //Si l'id ne renvoit aucun streamer
         </footer>
     </body>
 </html>
+
+
+<?php 
+
+$sql_streamer_data = "SELECT * FROM `streamers-stats` WHERE streamer = " . $streamer['id'] . "; ORDER BY date";
+$requete_streamer_data = $db->query($sql_streamer_data);
+$streamer_data = $requete_streamer_data->fetchAll();
+
+if(array_key_exists("0", $streamer_data)) {
+    echo $streamer_data[0]['views'];
+}
+else { echo 0;}
+
+?>
+
+<script>
+    const labels = [
+        'Mars',
+        'Avril',
+        'Mai',
+        'juin',
+    ];
+    
+    const data = {
+        labels: labels,
+        datasets: [{
+      label: 'VIEW',
+      backgroundColor: '#9146FF',
+      borderColor: '#9146FF',
+      data: [<?php if(array_key_exists("2", $streamer_data)) { echo $streamer_data[2]['views']; } else { echo null;} ?>,
+             <?php if(array_key_exists("1", $streamer_data)) { echo $streamer_data[1]['views']; } else { echo null;} ?>,
+             <?php if(array_key_exists("0", $streamer_data)) { echo $streamer_data[0]['views']; } else { echo null;} ?>
+            ],
+    }]
+};
+
+const config = {
+    type: 'line',
+    data: data,
+    options: {}
+};
+</script>
+
+<script>
+  const myChart = new Chart(
+    document.getElementById('myChart'), config );
+</script>
