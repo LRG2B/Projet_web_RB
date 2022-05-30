@@ -3,8 +3,6 @@ projet web de Rémi et de baptiste (c'est de la que viens le RB)
 
 - Voila pour plus de détail sur les consignes :
 
-Projet Noté
-
 Exercice de fin de parcours - Projet noté PHP
 
 Visualiser des données simplifiées TWITCH
