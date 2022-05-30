@@ -1,12 +1,10 @@
 # Projet_web_RB
-projet de Rémi et de baptiste
+projet web de Rémi et de baptiste (c'est de la que viens le RB) 
 
 
 Projet Noté
 
-Exercice de fin de parcours
-
-Data viz web - Projet noté PHP - Redécouverte
+Exercice de fin de parcours - Projet noté PHP
 
 Visualiser des données simplifiées TWITCH
 
