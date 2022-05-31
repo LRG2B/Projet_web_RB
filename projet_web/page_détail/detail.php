@@ -112,17 +112,16 @@ if (!$streamer) //Si l'id ne renvoit aucun streamer
 </html>
 
 
-<?php 
 
+
+
+
+<!-- code pour le graphique avec le framework Chart.js -->
+
+<?php // recup des données dans 
 $sql_streamer_data = "SELECT * FROM `streamers-stats` WHERE streamer = " . $streamer['id'] . "; ORDER BY date";
 $requete_streamer_data = $db->query($sql_streamer_data);
 $streamer_data = $requete_streamer_data->fetchAll();
-
-if(array_key_exists("0", $streamer_data)) {
-    echo $streamer_data[0]['views'];
-}
-else { echo 0;}
-
 ?>
 
 <script>
@@ -154,6 +153,5 @@ const config = {
 </script>
 
 <script>
-  const myChart = new Chart(
-    document.getElementById('myChart'), config );
+  const myChart = new Chart(document.getElementById('myChart'), config );
 </script>

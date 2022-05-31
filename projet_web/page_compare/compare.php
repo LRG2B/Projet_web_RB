@@ -97,7 +97,7 @@ $streamers = $requete->fetchAll();
                     <div><p><?php echo $streamer_stats["followers_total"]?></p></div>
                     <div><p><?php echo $streamer_stats["views_total"]?></p></div>
         </div>
-            </article>
+        </article>
             <?php endforeach; ?>
 
 

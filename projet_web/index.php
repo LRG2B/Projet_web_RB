@@ -33,9 +33,9 @@ $streamers = $requete->fetchAll(); //On récupère les données
         </section>
 
         <section id="text">
-            <h1 id="text_desc">Voici Twitch Track un trakeur qui vous propose les fonctionnalité suivante : </h1>
-            <li class="text_desc_puce">Voir les statistique des meilleurs streamer Français</li>
-            <li class="text_desc_puce">Comparer les meilleurs streamer Français</li>
+            <h1 id="text_desc">Voici Twitch Track un trakeur qui vous propose les fonctionnalité suivantes : </h1>
+            <li class="text_desc_puce">Voir les statistique des meilleurs streamers Français</li>
+            <li class="text_desc_puce">Comparer les meilleurs streamers Français</li>
             <div id="citation"><h1><i>“ Le meilleur Trackeur Twitch ”</i> &emsp;&emsp; Par LRG²B (en gros nous-même)</h1></div>
             
             <p id="text_list">
